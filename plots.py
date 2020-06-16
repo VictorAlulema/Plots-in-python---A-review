@@ -2,21 +2,35 @@ import numpy as np
 from matplotlib import cm
 from matplotlib import rcParams
 import matplotlib.pyplot as plt
-#rcParams['text.latex.unicode']=True
+
+# For scientific plotting, it is better to use "serif" or "times new roman" fonts
+# At the beginning of your code for plotting, it is recommended to define the settings for all of your figures
+
+rcParams['text.latex.unicode']=True
 plt.rc('font', family='serif')
 plt.rc('font',size=11)
 plt.rc('axes',labelsize=11)
-# Some Data
-x       =   np.linspace(1 , 5  , 50)
-y       =   np.logspace(5 , 10 , 50)
-z       =   np.linspace(5 , 10 , 50)
-size    =   np.geomspace(20 , 400 , len(x))
+
+# Generate some data (In your case, x,y,z, and size would be the four variables you want to plot/visualize
+x       =   np.linspace(1 , 5  , 50)    # Data values for x variable
+y       =   np.logspace(5 , 10 , 50)    # Data values for y variable
+z       =   np.linspace(5 , 10 , 50)    # Data values for z variable (This variable will be used to create a colorred scatter plot)
+size    =   np.geomspace(20 , 400 , len(x))   # This is another variable, in my case, I use the value of these variables 
+                                              # to generate a scatter plot with different marker size. Very useful when you want to visualize
+                                              # Three of four variables in a 2D plot
+                
+# Note: As you can see, x, y, z and size variables have the same number of data points
 
 # Step 1: Create a figure
-fig     =   plt.figure(figsize = (8,4)) # Figure size
+fig     =   plt.figure(figsize = (8,4))       # Figure size
+
 # Step 2: Add subplots (if you want or need)
-ax     =   fig.add_subplot(121)    # Left subplot
-ax1    =   fig.add_subplot(122)    # Right subplot
+# Subplots are denoted as follows: (121) == For example
+# The first number means the number of rows for your subplot figure
+# The second number means the number of columns for your subplot figure
+# The third number means the number of the plot. For example, if the third number is 1; then, the we refer to the first subplot, that is the left subplot
+ax     =   fig.add_subplot(121)    # Left subplot. 
+ax1    =   fig.add_subplot(122)    # Right subplot.
 
 # Plot a line with markers (Several settings for the markers)
 # left subplot
